@@ -1,0 +1,14 @@
+<h1>Team Details</h1>
+
+<div class="card">
+  <div class="card-body">
+    <p class="card-text"><strong>Name:</strong> <%= @teams.name %></p>
+    <p class="card-text"><strong>Country:</strong> <%= @teams.country %></p>
+    <p class="card-text"><strong>Founded:</strong> <%= @teams.founded %></p>
+    <p class="card-text"><strong>Player Count:</strong> <%= @teams.player_count %></p>
+    <p class="card-text"><strong>Description:</strong> <%= @teams.description %></p>
+    
+    <%= link_to "Edit", edit_team_path(@teams), class: "btn btn-primary mr-2" %>
+    <%= link_to "Back", teams_path, class: "btn btn-secondary" %>
+  </div>
+</div>

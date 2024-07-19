@@ -1,0 +1,45 @@
+
+
+<h1>Players</h1>
+
+<div class="search-filters mb-4">
+  <%= form_with url: players_path, method: :get, local: true do %>
+    <div class="form-group">
+      <%= label_tag :team_name, 'Team Name' %>
+      <%= select_tag :team_id, options_from_collection_for_select(Team.all, :id, :name, selected: params[:team_id]), include_blank: true, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :player_name, 'Player Name' %>
+      <%= text_field_tag :player_name, params[:player_name], class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :age_min, 'Age (Min)' %>
+      <%= number_field_tag :age_min, params[:age_min], class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :age_max, 'Age (Max)' %>
+      <%= number_field_tag :age_max, params[:age_max], class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= submit_tag 'Search', class: 'btn btn-primary' %>
+      <%= link_to 'Reset', players_path, class: 'btn btn-secondary' %>
+    </div>
+  <% end %>
+</div>
+
+
+
+<div id="players">
+  <% @players.each do |player| %>
+    <%= render player %>
+    <p>
+      <%= link_to "Show this player", player %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New player", new_player_path %>

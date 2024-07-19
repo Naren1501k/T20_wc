@@ -1,0 +1,57 @@
+<%= form_with(model: player) do |form| %>
+  <% if player.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(player.errors.count, "error") %> prohibited this player from being saved:</h2>
+
+      <ul>
+        <% player.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :age, style: "display: block" %>
+    <%= form.number_field :age %>
+  </div>
+
+  <div>
+    <%= form.label :position, style: "display: block" %>
+    <%= form.text_field :position %>
+  </div>
+
+  <div>
+    <%= form.label :team_id, style: "display: block" %>
+    <%= form.collection_select :team_id, Team.all, :id, :name, include_blank: false, class: 'form-control' %>
+  </div>
+
+  <div>
+    <%= form.label :role, style: "display: block" %>
+    <%= form.text_field :role %>
+  </div>
+
+  <div>
+    <%= form.label :is_captain, style: "display: block" %>
+    <%= form.check_box :is_captain %>
+  </div>
+
+  <div>
+    <%= form.label :is_active, style: "display: block" %>
+    <%= form.check_box :is_active %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

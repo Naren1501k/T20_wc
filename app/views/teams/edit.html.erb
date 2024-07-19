@@ -1,0 +1,49 @@
+<h1> Edit teams  </h1>
+  
+  <% if @teams.errors.any? %>
+  <h2> the following errors prevented the teams from being saved </h2>
+  <ul>
+        <% @teams.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li> 
+        <% end %>
+  </ul>
+    
+<% end %>
+
+ 
+<%= form_with(model: @team, local: true) do |f| %>
+
+    <p>
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+    </p>
+
+    <p>
+        <%= f.label  :country %><br>
+        <%= f.text_field :country %>
+    </p>
+
+    <p>
+        <%= f.label :founded %>
+        <%= f.number_field :founded %>
+    </p>
+
+    <p>
+        <%= f.label :player_count %>
+        <%= f.number_field :player_count %>
+    </p>
+
+    <p>
+       <%= f.label :description%>
+        <%= f.text_field :description %>
+        
+
+    </p>
+
+    <p>
+    <%= f.submit %>
+    </p>
+
+<% end %>
+
+<%= link_to 'Cancel and return to articles listing', teams_path %>

@@ -1,0 +1,48 @@
+<h1> crete a new  </h1>
+  
+  <% if @teams.errors.any? %>
+  <h2> the following errors prevented the team from being saved </h2>
+  <ul>
+        <% @teams.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li> 
+        <% end %>
+  </ul>
+    
+<% end %>
+
+
+<%= form_with scope: :teams, url: teams_path, local: true do |f| %>
+    <div>
+        <p>
+            <%= f.label :name %><br>
+            <%= f.text_field :name %>
+        </p>
+    </div
+
+    <p>
+        <%= f.label :country %><br>
+        <%= f.text_field :country %>
+    </p>
+
+    <p>
+        <%= f.label :founded %><br>
+        <%= f.text_field :founded %>
+    </p>
+
+    <p>
+        <%= f.label :player_count %><br>
+        <%= f.text_field :player_count %>
+    </p>
+
+    <p>
+        <%= f.label :description %><br>
+        <%= f.text_field :description %>
+    </p>
+    
+    <p>
+    <%= f.submit %>
+    </p>
+
+<% end %>
+
+<%= link_to 'Return', teams_path %>

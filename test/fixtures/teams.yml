@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  country: MyString
+  founded: 1
+  player_count: 1
+  description: MyText
+
+two:
+  name: MyString
+  country: MyString
+  founded: 1
+  player_count: 1
+  description: MyText
