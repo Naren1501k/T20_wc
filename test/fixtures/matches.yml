@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  location: MyString
+  date: 2024-07-26
+  home_team_id: 1
+  away_team_id: 1
+
+two:
+  location: MyString
+  date: 2024-07-26
+  home_team_id: 1
+  away_team_id: 1

@@ -1,12 +1,15 @@
 class PlayersController < ApplicationController
   before_action :set_player, only: %i[ show edit update destroy ]
+  before_action :set_team
+  before_action :authenticate_user!
+
 
   def index
     @players = Player.includes(:team).all
     puts @players
     puts params.inspect
     if params[:team_id].present?
-      #  @players = @players.joins(:team).where('teams.name = ?', params[:team_name])
+     
       @players = @players.where('players.team_id = ?', params[:team_id])
     end
     if params[:player_name].present?

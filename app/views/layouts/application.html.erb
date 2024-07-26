@@ -47,7 +47,23 @@
       </nav>
       <br>
       <br>
-    
+     
+      <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+
+       <ul>
+              <% if user_signed_in? %>
+               <li><%= button_to 'Home', root_path %></li>
+               <li><%= button_to 'Profile', edit_user_registration_path %></li>
+               <li><%= button_to 'Logout', destroy_user_session_path, method: :delete %></li>
+             <% else %>
+               <li><%= button_to 'Home', root_path %></li>
+               <li><%= button_to 'Sign Up', new_user_registration_path %></li>
+               <li><%= button_to 'Login', new_user_session_path %></li>
+             <% end %>
+           </ul>
+            
+
 
     <%= yield %>
 
