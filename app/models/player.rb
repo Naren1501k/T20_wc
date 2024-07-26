@@ -24,12 +24,12 @@ class Player < ApplicationRecord
     team.update(player_count: team.players.count)
   end
 
-  def validate_captain_count
-    if captain? && team.players.where(captain: true).count > 0
-      errors.add(:base, "A team can only have one captain")
-      throw(:abort)
-    end
-  end
+  # def validate_captain_count
+  #   if captain? && team.players.where(captain: true).count > 0
+  #     errors.add(:base, "A team can only have one captain")
+  #     throw(:abort)
+  #   end
+  # end
 
   validates :name, presence: true
   validates :age, presence: true, numericality: { only_integer: true }

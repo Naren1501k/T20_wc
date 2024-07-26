@@ -1,6 +1,6 @@
 class PlayersController < ApplicationController
-  before_action :set_player, only: %i[ show edit update destroy ]
-  before_action :set_team
+  # before_action :set_player, only: %i[ show edit update destroy ]
+  # before_action :set_team
   before_action :authenticate_user!
 
 
@@ -22,6 +22,7 @@ class PlayersController < ApplicationController
     elsif params[:age_max].present?
       @players = @players.where('age <= ?', params[:age_max])
     end
+    
   end
 
   
